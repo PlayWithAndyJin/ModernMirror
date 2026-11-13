@@ -1,8 +1,13 @@
-# ModernMirror
+<p align="center">
+  <img src="assets/logo.png" width="128" alt="ModernMirror logo">
+</p>
 
-**A lightweight, self-hosted caching proxy for package registries.** Cache PyPI, npm, Go, Maven, NuGet, RubyGems, apt/yum and more on your own machine, so repeated installs inside a team never hit the public internet twice.
+<h1 align="center">ModernMirror</h1>
 
-English | [简体中文](README.md)
+<p align="center"><strong>A lightweight, self-hosted caching proxy for package registries.</strong><br>
+Cache PyPI, npm, Go, Maven, NuGet, RubyGems, apt/yum and more on your own machine, so repeated installs inside a team never hit the public internet twice.</p>
+
+<p align="center">English | <a href="README.md">简体中文</a></p>
 
 > ModernMirror is an independent project and is not affiliated with Nexus or Verdaccio. It is aimed at studios, homelabs and small teams that need a simple internal mirror.
 

@@ -1,8 +1,13 @@
-# ModernMirror
+<p align="center">
+  <img src="assets/logo.png" width="128" alt="ModernMirror logo">
+</p>
 
-**轻量级、自托管的软件源代理缓存系统。** 把 PyPI、npm、Go、Maven、NuGet、RubyGems、apt/yum 等十余种软件源统一缓存到本机，团队内重复安装依赖时不再重复走外网。
+<h1 align="center">ModernMirror</h1>
 
-[English](README.en.md) | 简体中文
+<p align="center"><strong>轻量级、自托管的软件源代理缓存系统。</strong><br>
+把 PyPI、npm、Go、Maven、NuGet、RubyGems、apt/yum 等十余种软件源统一缓存到本机，团队内重复安装依赖时不再重复走外网。</p>
+
+<p align="center"><a href="README.en.md">English</a> | 简体中文</p>
 
 > ModernMirror 与 Nexus、Verdaccio 等项目没有关联，是一个独立实现。适合工作室、家庭实验室和内网团队。
 
