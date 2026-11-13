@@ -1,0 +1,4 @@
+username,password,role,groups
+alice,ChangeMe123,user,"devteam"
+bob,ChangeMe456,user,"devteam,qa"
+carol,,user,"devteam"

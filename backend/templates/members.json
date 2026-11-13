@@ -1,0 +1,19 @@
+[
+  {
+    "username": "alice",
+    "password": "ChangeMe123",
+    "role": "user",
+    "groups": ["devteam"]
+  },
+  {
+    "username": "bob",
+    "password": "ChangeMe456",
+    "role": "user",
+    "groups": ["devteam", "qa"]
+  },
+  {
+    "username": "carol",
+    "role": "user",
+    "groups": ["devteam"]
+  }
+]

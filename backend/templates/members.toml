@@ -1,0 +1,20 @@
+# ModernMirror 成员导入模板
+# username 必填，password 可选，留空时系统生成随机密码并只显示一次
+# role 可选，取值为 user 或 admin，groups 可选，多个组用数组表示，留空时加入当前组
+
+[[members]]
+username = "alice"
+password = "ChangeMe123"
+role = "user"
+groups = ["devteam"]
+
+[[members]]
+username = "bob"
+password = "ChangeMe456"
+role = "user"
+groups = ["devteam", "qa"]
+
+[[members]]
+username = "carol"
+role = "user"
+groups = ["devteam"]

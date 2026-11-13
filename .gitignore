@@ -1,0 +1,38 @@
+# 运行时数据，数据库、缓存、私有包、审计日志和主密钥都不入库
+backend/data/
+*.db
+*.db-wal
+*.db-shm
+audit.log
+audit.log.*
+master.key
+modernmirror.env
+.env
+
+# Python 虚拟环境与缓存
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+backend/venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 前端依赖与构建产物
+node_modules/
+frontend/dist/
+.vite/
+npm-debug.log*
+yarn-error.log*
+
+# 编辑器与系统文件
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# 打包产物
+*.fpk
+*.tgz

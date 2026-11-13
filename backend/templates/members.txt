@@ -1,0 +1,9 @@
+# ModernMirror 成员导入模板
+# 每行一个成员，字段顺序为 username、password、role、groups
+# password、role、groups 均可省略，多个组用逗号分隔，包含逗号时请为整行加引号
+# 不提供密码时系统生成随机密码并只显示一次
+# 空行与以井号开头的行会被忽略
+
+alice,ChangeMe123,user,devteam
+bob,ChangeMe456,user,"devteam,qa"
+carol,,user,devteam
