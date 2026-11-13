@@ -1,0 +1,61 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 版本号，例如 v1.0.0
+        required: true
+        default: v1.0.0
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 确定版本号
+        id: version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            version="$INPUT_VERSION"
+          else
+            version="$GITHUB_REF_NAME"
+          fi
+          if [ -z "$version" ]; then
+            echo "版本号为空" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: 生成压缩包
+        run: |
+          mkdir -p dist
+          zip="dist/ModernMirror-${{ steps.version.outputs.version }}.zip"
+          git archive --format=zip --prefix="ModernMirror-${{ steps.version.outputs.version }}/" -o "$zip" HEAD
+          ls -lh "$zip"
+          unzip -l "$zip"
+
+      - name: 发布 Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version="${{ steps.version.outputs.version }}"
+          zip="dist/ModernMirror-$version.zip"
+          if gh release view "$version" >/dev/null 2>&1; then
+            gh release upload "$version" "$zip" --clobber
+          else
+            gh release create "$version" "$zip" --title "$version" --generate-notes
+          fi
