@@ -25,6 +25,31 @@ Cache PyPI, npm, Go, Maven, NuGet, RubyGems, apt/yum and more on your own machin
 - **SM cryptography**: PBKDF2-SM3 password hashing, SM4 authenticated encryption, with migration support for legacy data
 - **Audit log**: logins, repository changes, uploads, deletions and verification failures are recorded and encrypted
 
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/01-login.png" alt="Sign-in page"><br><sub>Sign-in page</sub></td>
+    <td width="50%"><img width="100%" src="samples/02-repos.png" alt="Repositories with upstream latency probing"><br><sub>Repositories with upstream latency probing</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/03-users.png" alt="User management and MFA status"><br><sub>User management and MFA status</sub></td>
+    <td width="50%"><img width="100%" src="samples/04-groups.png" alt="Groups and repository permission matrix"><br><sub>Groups and repository permission matrix</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/05-private-packages.png" alt="Private package hosting"><br><sub>Private package hosting</sub></td>
+    <td width="50%"><img width="100%" src="samples/06-stats.png" alt="Cache statistics and cleanup policy"><br><sub>Cache statistics and cleanup policy</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/07-audit.png" alt="Audit log"><br><sub>Audit log</sub></td>
+    <td width="50%"><img width="100%" src="samples/08-settings.png" alt="Settings and API keys"><br><sub>Settings and API keys</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/09-client-config.png" alt="Client configuration snippets"><br><sub>Client configuration snippets</sub></td>
+    <td width="50%"><img width="100%" src="samples/10-docs.png" alt="Built-in documentation"><br><sub>Built-in documentation</sub></td>
+  </tr>
+</table>
+
 ## How it works
 
 ```

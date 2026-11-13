@@ -25,6 +25,31 @@
 - **国密加密**：密码使用 PBKDF2-SM3，敏感数据使用 SM4 认证加密，兼容旧版数据迁移
 - **审计日志**：登录、仓库变更、上传删除、校验失败等事件全部落盘并加密
 
+## 界面预览
+
+<table>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/01-login.png" alt="登录页面"><br><sub>登录页面</sub></td>
+    <td width="50%"><img width="100%" src="samples/02-repos.png" alt="镜像仓库与上游延迟探测"><br><sub>镜像仓库与上游延迟探测</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/03-users.png" alt="用户管理与 MFA 状态"><br><sub>用户管理与 MFA 状态</sub></td>
+    <td width="50%"><img width="100%" src="samples/04-groups.png" alt="用户组与仓库权限矩阵"><br><sub>用户组与仓库权限矩阵</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/05-private-packages.png" alt="私有包托管"><br><sub>私有包托管</sub></td>
+    <td width="50%"><img width="100%" src="samples/06-stats.png" alt="缓存统计与自动清理策略"><br><sub>缓存统计与自动清理策略</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/07-audit.png" alt="审计日志"><br><sub>审计日志</sub></td>
+    <td width="50%"><img width="100%" src="samples/08-settings.png" alt="系统设置与 API 密钥"><br><sub>系统设置与 API 密钥</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img width="100%" src="samples/09-client-config.png" alt="客户端配置示例"><br><sub>客户端配置示例</sub></td>
+    <td width="50%"><img width="100%" src="samples/10-docs.png" alt="内置使用文档"><br><sub>内置使用文档</sub></td>
+  </tr>
+</table>
+
 ## 工作原理
 
 ```
