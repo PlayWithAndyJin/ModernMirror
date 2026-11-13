@@ -339,25 +339,40 @@ The `deploy/` directory contains a systemd unit and environment file example. Ad
 
 ## FAQ
 
-**401 or 403 responses**
+<details>
+<summary>401 or 403 responses</summary>
 
 401 means missing or expired credentials. 403 means the user lacks permission on that repository. Check group grants, and make sure the admin account has also joined the group.
 
-**502 with a hash mismatch message**
+</details>
+
+<details>
+<summary>502 with a hash mismatch message</summary>
 
 The upstream file does not match its official metadata and was rejected. Switch to a trusted upstream and inspect the expected and actual hashes in the audit log.
 
-**Clients still see an old version**
+</details>
+
+<details>
+<summary>Clients still see an old version</summary>
 
 Some clients keep their own index cache; clear it and retry. Proxy cache can be cleaned from the **Cache statistics** page.
 
-**Port already in use**
+</details>
+
+<details>
+<summary>Port already in use</summary>
 
 Change `MODERNMIRROR_PORT`, or stop the process holding the port and restart.
 
-**Forgot the admin password**
+</details>
+
+<details>
+<summary>Forgot the admin password</summary>
 
 Use another admin account to reset it. If none exists, back up the data and reinitialize the database. Never delete `master.key`.
+
+</details>
 
 ## Contributing
 
