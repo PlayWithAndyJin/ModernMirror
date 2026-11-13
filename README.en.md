@@ -57,7 +57,7 @@ pip / npm / curl / apt
 ### Run
 
 ```bash
-git clone <your-repository-url> ModernMirror
+git clone https://github.com/PlayWithAndyJin/ModernMirror.git ModernMirror
 cd ModernMirror
 ./start.sh
 ```

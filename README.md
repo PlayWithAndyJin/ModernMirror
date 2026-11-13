@@ -57,7 +57,7 @@
 ### 启动
 
 ```bash
-git clone <你的仓库地址> ModernMirror
+git clone https://github.com/PlayWithAndyJin/ModernMirror.git ModernMirror
 cd ModernMirror
 ./start.sh
 ```
