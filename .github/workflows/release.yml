@@ -5,12 +5,6 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
-    inputs:
-      version:
-        description: 版本号，例如 v1.0.0
-        required: true
-        default: v1.0.0
-        type: string
 
 permissions:
   contents: write
@@ -24,27 +18,30 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 确定版本号
+      - name: 读取版本号
         id: version
-        env:
-          INPUT_VERSION: ${{ inputs.version }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            version="$INPUT_VERSION"
-          else
-            version="$GITHUB_REF_NAME"
-          fi
+          version=$(node -p "require('./frontend/package.json').version")
           if [ -z "$version" ]; then
-            echo "版本号为空" >&2
+            echo "frontend/package.json 中缺少版本号" >&2
+            exit 1
+          fi
+          tag="v$version"
+          if [ "${{ github.event_name }}" = "push" ] && [ "$GITHUB_REF_NAME" != "$tag" ]; then
+            echo "标签 $GITHUB_REF_NAME 与 frontend/package.json 的版本 $version 不一致" >&2
+            echo "请修改版本号后重新打标签，或改用 Actions 页面手动运行" >&2
             exit 1
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "本次发布版本 $tag"
 
       - name: 生成压缩包
         run: |
           mkdir -p dist
-          zip="dist/ModernMirror-${{ steps.version.outputs.version }}.zip"
-          git archive --format=zip --prefix="ModernMirror-${{ steps.version.outputs.version }}/" -o "$zip" HEAD
+          tag="${{ steps.version.outputs.tag }}"
+          zip="dist/ModernMirror-$tag.zip"
+          git archive --format=zip --prefix="ModernMirror-$tag/" -o "$zip" HEAD
           ls -lh "$zip"
           unzip -l "$zip"
 
@@ -52,10 +49,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          version="${{ steps.version.outputs.version }}"
-          zip="dist/ModernMirror-$version.zip"
-          if gh release view "$version" >/dev/null 2>&1; then
-            gh release upload "$version" "$zip" --clobber
+          tag="${{ steps.version.outputs.tag }}"
+          zip="dist/ModernMirror-$tag.zip"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$zip" --clobber
           else
-            gh release create "$version" "$zip" --title "$version" --generate-notes
+            gh release create "$tag" "$zip" --title "$tag" --generate-notes
           fi
